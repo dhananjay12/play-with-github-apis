@@ -22,5 +22,6 @@ jobs:
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
         run: |
-          ./create-comment-pr.sh
+          ./create-comment-pr.sh $PR_NUMBER
