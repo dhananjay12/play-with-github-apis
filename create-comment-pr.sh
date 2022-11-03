@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PULL_NUMBER=${1}
+
 echo "Create comment PULL_NUMBER =  $PULL_NUMBER"
 OWNER="dhananjay12"
 REPO="play-with-github-apis"
@@ -12,6 +13,12 @@ if [ ${#BANNED_WORDS_FOUND[@]} -eq 0 ]; then
     echo "No errors, hooray"
     if [[ -n $REVIEW_ID ]]; then
     echo "https://api.github.com/repos/$OWNER/$REPO/pulls/$PULL_NUMBER/reviews/$REVIEW_ID"
+    curl \
+      -X PUT \
+      -H "Accept: application/vnd.github+json" \
+      -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+      https://api.github.com/repos/$OWNER/$REPO/pulls/$PULL_NUMBER/reviews/$REVIEW_ID/dismissals \
+      -d '{"message":"No errors, hooray","event":"DISMISS"}'
     curl \
       -X DELETE \
       -H "Accept: application/vnd.github+json" \
