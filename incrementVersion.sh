@@ -1,0 +1,1 @@
+sed -i "/pluginVersion =/ s/=.*/= $1/" app.properties
