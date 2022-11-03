@@ -13,6 +13,7 @@ else
       -H "Accept: application/vnd.github+json" \
       -H "Authorization: Bearer ${GITHUB_TOKEN}" \
       https://api.github.com/repos/dhananjay12/play-with-github-apis/pulls/$PULL_NUMBER/reviews \
-      -d
+      -d $COMMENT_BODY
+
 fi
 

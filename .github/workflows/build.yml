@@ -24,5 +24,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.number }}
         run: |
+<<<<<<< HEAD
           echo $PR_NUMBER
+=======
+>>>>>>> main
           ./create-comment-pr.sh $PR_NUMBER
