@@ -8,6 +8,7 @@ if [ ${#BANNED_WORDS_FOUND[@]} -eq 0 ]; then
     echo "No errors, hooray"
 else
   COMMENT_BODY='{"body":"You have these banned words in the file : $BANNED_WORDS_FOUND", "event":"REQUEST_CHANGES" }'
+  echo "$COMMENT_BODY"
     curl \
       -X POST \
       -H "Accept: application/vnd.github+json" \
