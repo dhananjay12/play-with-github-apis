@@ -17,7 +17,7 @@ jobs:
       - name: Change permission of all Scripts
         shell: bash
         run: |
-          chmod +x .
+          chmod -R 777 ./
       - name: Check banned word
         shell: bash
         env:
