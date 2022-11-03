@@ -31,3 +31,4 @@ echo "$BANNED_WORDS_FOUND"
 
 }
 
+getBannedWords

@@ -14,9 +14,15 @@ jobs:
         with:
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
+      - name: Change permission of all Scripts
+        shell: bash
+        run: |
+          chmod -R 777 ./
       - name: Check banned word
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
         run: |
-          ./create-comment-pr.sh
+          echo $PR_NUMBER
+          ./create-comment-pr.sh $PR_NUMBER
