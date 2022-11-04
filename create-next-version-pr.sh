@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 PROPERTIES_FILE_NAME="./app.properties"
+OWNER="dhananjay12"
+REPO="play-with-github-apis"
 
 #read the properties file and returns the value based on the key
 function getPropVal {
@@ -37,7 +39,8 @@ echo $NEW_VERSION
 setProperty "appVersion" "$NEW_VERSION" "app.properties"
 
 BRANCH="update-$NEW_VERSION"
-
+git config user.email "action@github.com"
+git config user.name "GitHub Action"
 git checkout -b $BRANCH
 git commit -am "Update - $VERSION"
 git push --set-upstream origin $BRANCH

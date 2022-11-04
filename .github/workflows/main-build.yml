@@ -18,7 +18,7 @@ jobs:
         shell: bash
         run: |
           chmod -R 777 ./
-      - name: Check banned word
+      - name: Update Version and Create PR
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
