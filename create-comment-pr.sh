@@ -18,11 +18,6 @@ if [ ${#BANNED_WORDS_FOUND[@]} -eq 0 ]; then
       -H "Authorization: Bearer ${GITHUB_TOKEN}" \
       https://api.github.com/repos/$OWNER/$REPO/pulls/$PULL_NUMBER/reviews/$REVIEW_ID/dismissals \
       -d '{"message":"No errors, hooray","event":"DISMISS"}'
-    curl \
-      -X DELETE \
-      -H "Accept: application/vnd.github+json" \
-      -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-      https://api.github.com/repos/$OWNER/$REPO/pulls/$PULL_NUMBER/reviews/$REVIEW_ID
    fi
 else
   if [[ -n $REVIEW_ID ]];

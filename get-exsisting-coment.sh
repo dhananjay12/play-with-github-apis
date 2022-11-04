@@ -10,8 +10,9 @@ echo "Get comment PULL_NUMBER =  $PULL_NUMBER"
       -H "Authorization: Bearer ${GITHUB_TOKEN}" \
       https://api.github.com/repos/$OWNER/$REPO/pulls/$PULL_NUMBER/reviews | \
       jq -rM ".[] |
-      {id: .id, commented_by: .user.login} |
+      {id: .id, commented_by: .user.login , state: .state} |
       select (.commented_by == \"$github_bot_name\") |
+      select (.state == \"CHANGES_REQUESTED\") |
       [.id] |
       @csv" 2>/dev/null | head -1`
 
