@@ -42,7 +42,8 @@ BRANCH="update-$NEW_VERSION"
 git config user.email "action@github.com"
 git config user.name "GitHub Action"
 git checkout -b $BRANCH
-git commit -am "Update - $VERSION"
+git add "app.properties"
+git commit -m "Update - $VERSION"
 git push --set-upstream origin $BRANCH
 
 curl \
