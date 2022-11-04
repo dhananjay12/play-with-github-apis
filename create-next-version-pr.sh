@@ -36,10 +36,10 @@ NEW_VERSION=$major.$minor.$patch
 echo $NEW_VERSION
 setProperty "appVersion" "$NEW_VERSION" "app.properties"
 
-BRANCH="changelog-update-$NEW_VERSION"
+BRANCH="update-$NEW_VERSION"
 
 git checkout -b $BRANCH
-git commit -am "Changelog update - $VERSION"
+git commit -am "Update - $VERSION"
 git push --set-upstream origin $BRANCH
 
 curl \
