@@ -47,7 +47,5 @@ else
           https://api.github.com/repos/$OWNER/$REPO/pulls/$PULL_NUMBER/reviews \
           -d "$COMMENT_BODY"
   fi
-
-
 fi
 
